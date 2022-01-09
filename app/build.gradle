@@ -38,10 +38,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //material ui
     implementation 'com.google.android.material:material:1.4.0'
+    //viewpager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha01'
 
     implementation 'com.android.volley:volley:1.2.1'
     //for lambog
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    //to parse json
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.4'
+
+
 
 }

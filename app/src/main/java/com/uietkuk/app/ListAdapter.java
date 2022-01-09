@@ -1,5 +1,6 @@
 package com.uietkuk.app;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,29 +13,33 @@ import com.uietkuk.app.model.Announcement;
 
 import java.util.ArrayList;
 
-public class listAdapter extends RecyclerView.Adapter<listViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
     @NonNull
     private ArrayList<Announcement> dataModelAnnouncements;
+    private Context context;
 
-    public listAdapter(ArrayList<Announcement> dataModelAnnouncements){
+    public ListAdapter(Context context, ArrayList<Announcement> dataModelAnnouncements){
         //this will get all the data from the api
+        this.context=context;
         this.dataModelAnnouncements=dataModelAnnouncements;
+        System.out.println("Data "+dataModelAnnouncements);
     }
+
+
     @Override
-    public listViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.announcementslist, parent, false);
 
-        return new listViewHolder(view);
+        return new ListViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull listViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
 
         Announcement currItem=dataModelAnnouncements.get(position);
         holder.getTxtDate().setText(currItem.getDate().toString());
         holder.getTxtDesc().setText(currItem.getName());
-
 
     }
 
@@ -45,14 +50,14 @@ public class listAdapter extends RecyclerView.Adapter<listViewHolder> {
 
 
 }
-class listViewHolder extends RecyclerView.ViewHolder{
+class ListViewHolder extends RecyclerView.ViewHolder{
 
     //declare and initalize all the list items here
 
     private final TextView txtDate;
     private final TextView txtDesc;
 
-    public listViewHolder(@NonNull View itemView) {
+    public ListViewHolder(@NonNull View itemView) {
         //initalize them
         super(itemView);
         txtDate=itemView.findViewById(R.id.txtDate);

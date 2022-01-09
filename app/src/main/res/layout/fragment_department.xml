@@ -6,10 +6,11 @@
     tools:context=".Department">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerViewDepart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="department Fragment"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>
